@@ -1,0 +1,25 @@
+{
+    "name": "ma-jonzz/alpha-orm",
+    "description": "Alpha is a micro-orm for Silex/Flex built on Doctrine DBAL",
+    "require": {
+        "doctrine/dbal": ">=2.4.0",
+        "php": ">=7.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ju Smwhr",
+            "email": "julien@troisyaourts.com"
+        },
+        {
+            "name": "MA J'onzz",
+            "email": "mohamed@hello-pomelo.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "Alpha": "src/"
+        }
+    }
+}

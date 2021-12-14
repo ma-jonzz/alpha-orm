@@ -1,0 +1,52 @@
+v0.3.2
+ - Added the method ->filter : it returns an entity object list with item filtered (parameter of the callable are Entities so you can use all methods and stuff to filter)
+ - updated test.php to reflect changes
+ 
+v0.3.1
+ - Fixes a bug arising when calling empty on a property (it was always returning true)
+ - updated test.php to reflect changes
+
+v0.3.0
+ - Complete refactoring to improve performance in most cases (Worst complexity is still the same)
+ - Use of magical setter/getter to offload computation 
+ - Implement JsonSerializable for back-compatibility with weird usage
+ - Implement ArrayAccess for more fun ways to play with lists
+
+v0.2.7
+ - Implements Serializable (Useful in the case of the UserInterface in Silex)
+
+v0.2.6
+ - Bool (TinyInt) are not casted anymore to true/false because of a bug in PDO where false is binded to an empty string
+   (they are casted to int instead)
+
+v0.2.5
+ - Int, Float, Bool are now casted from string according to MySQL type. May incur a ~10% loss in speed when using loadPile;
+ - new getColumnsMeta in Manager
+ - updated test.php to reflect changes
+
+v0.2.4
+ - Multiple database available (define const DB_NAME in class)
+ - When using Silex/Symfony included ServiceProvider, DB_NAME is the name defined in dbs.conf
+ - Default is usual comportment (base on $app['db'])
+ - updated test.php to reflect changes
+
+v0.2.3
+ - Better consitency of data when loading partial objects
+ - "null" from database are now loaded in object and are visible when using toArray
+
+v0.2.2
+ - Bug fix on 0.2.1 where fetchOne was poorly supported
+
+v0.2.1 (DEPRECATED : UGRADE TO 0.2.2)
+ - BREAKING CHANGE : in Entity, fetchOne and fetchAll now return empty object instead of null 
+ > Fix : test $obj->isEmpty() instead of is_null($obj) in your conditions.
+
+v0.2
+ - throw an Exception when a unknow static function is invoked in manager (was failing with just a warning)
+ - additional parameter to Manager->get() : default_values is dataloaded if object is new
+ - additional parameter to toArray() : choose if _json columns are encoded (used internally for save only)
+ - 'examples' directory added : some tests added to check basic functionnality
+ - this CHANGELOG added
+
+v0.1
+Initial version
